@@ -1,0 +1,8 @@
+[meta]
+name     = "Speed Drift Trainer"
+author   = "MagpieAI"
+category = "Utilities"
+version  = "1.0.0"
+
+[script]
+dependencies = [ "VehicleState" ]
