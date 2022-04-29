@@ -24,11 +24,13 @@ To visualise this, the acceleration bar and the speed drift coach bar will guide
 
 ## Case: no drift
 ![](screenshots/no%20drift.PNG)
+
 If you are not currently in a drift, the plugin will automatically recognise this, grey out the steer coach bar and tell you to drift.
 This is particularly helpful if you are playing in cam 3 and cannot see your wheels.
 
 ## Case: overdrifting
 ![](screenshots/overdrifting.PNG)
+
 If you drift too much you won't accelerate at the maximum possible value.
 This is shown in the vertical acceleration bar, which is yellow and shows only ~58% of the theoretical acceleration for the current speed.
 The Steer coach bar informs that this is an overdrift in 2 ways:
@@ -40,6 +42,7 @@ Remember: if the blue circle is on the left or the text "Less" appears, you are 
 
 ## Case: underdrifting
 ![](screenshots/underdrifting.PNG)
+
 If you don't drift enough you won't accelerate as fast as possible either.
 Again, this is shown through a poor acceleration bar value and in the steer coach bar.
 Now, the yellow circle is on the far left and the text appearing is "more". This shows the car is underdrifting and more steering is needed for the perfect SD.
@@ -47,6 +50,7 @@ Also in this screenshot, you can see the exact Raw Angular delta. 4.2 is the val
 
 ## Case: good drift
 ![](screenshots/good%20drift.PNG)
+
 if your drift is near-optimal, you will see a white circle overlay onto the speed drift bar. When the yellow and blue circles perfectly overlap, your speed drift angle is optimal.
 The acceleration bar also helps to visualise this by going green and displaying that you are close to the maximum possible acceleration for that speed.
 
@@ -63,3 +67,6 @@ In the game's physics, the actual variable we are attempting to track is inversl
 Since this variable is hidden (so far as I can tell), we attempt to reverse-engineer it by using the slope of the speed - (inverse angle) graph from calibration exercises. The data on this is not perfect - my pearson coefficients were around 0.95. This is expected from human inputs.
 We can then simply plug this back into the game's engine to calculate an optimal angle for any surface at any speed, and by comparing that optimal value against the current value being driven we can give feedback to the driver through the plugin.
 
+## Feedback and support
+The licence here gives anyone full use of the code if they wish to alter or improve it. I'm also happy to interact and receive suggestions or pull requests. You can also contact me on Discord (Magpie#6420)
+For anyone looking to support - simply "starring" this repo in github helps a lot.
