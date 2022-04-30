@@ -4,6 +4,18 @@ array<float> accelArray = {0, 0, 0, 0};
 array<float> accelArrayNoAdjust = {0,0,0,0};
 array<float> angleArray = {0,0,0,0};
 
+float roadIntercept = -15.26260872;
+float roadGradient = 0.4478882302;
+float dirtIntercept = 46.06512662;
+float dirtGradient = 0.990689286;
+float greenIntercept = -76.41821143;
+float greenGradient = 1.425354153;
+float metalIntercept = -5.403709409;
+float metalGradient = 0.439021825;
+float plasticIntercept = -55.61774718;
+float plasticGradient = 1.46779259;
+
+
 vec3 worldNormalVec;
 vec3 DriftDirVec = vec3(0,0,0);
 vec3 prevDriftDirVec = vec3(0,0,0);
@@ -338,23 +350,23 @@ void Render()
         adjustedMaxAccelSpeedSlide = 4.915 + prevSpeed*3.6*0.003984518249 + perfectBuffer; 
     }
 
-    float steer_angle = 100 / (-0.9294028788 + prevSpeed *3.6 * 0.3270437799);
+    float steer_angle = 100 / (roadIntercept + prevSpeed *3.6 * roadGradient);
     if(surface == CSceneVehicleVisState::EPlugSurfaceMaterialId::Dirt){
-        steer_angle = 100 / (46.06512662 + prevSpeed *3.6 * 0.9906892861);
+        steer_angle = 100 / (dirtIntercept + prevSpeed *3.6 * dirtGradient);
         adjustedMaxAccelSpeedSlide = 9.39951+perfectBuffer;
         speedCriticalValue = 300;
     }
     else if(surface == CSceneVehicleVisState::EPlugSurfaceMaterialId::Green){
-        steer_angle = 100 / (-76.41821143 + prevSpeed *3.6 * 1.425354153);
+        steer_angle = 100 / (greenIntercept + prevSpeed *3.6 * greenGradient);
         adjustedMaxAccelSpeedSlide = 9.10985+perfectBuffer;
         speedCriticalValue = 300;
     }
     else if(surface == CSceneVehicleVisState::EPlugSurfaceMaterialId::ResonantMetal){
-        steer_angle = 100 / (-2.614051662 + prevSpeed *3.6 * 0.3262572249);
+        steer_angle = 100 / (metalIntercept + prevSpeed *3.6 * metalGradient);
         adjustedMaxAccelSpeedSlide = 5.116468878 + prevSpeed*3.6* 0.003598542825 + perfectBuffer;
     }
     else if(surface == CSceneVehicleVisState::EPlugSurfaceMaterialId::Plastic){
-        steer_angle = 100 / (-55.61774718 + prevSpeed *3.6 * 1.46779259);
+        steer_angle = 100 / (plasticIntercept + prevSpeed *3.6 * plasticGradient);
         adjustedMaxAccelSpeedSlide = 9.637077091 + prevSpeed*3.6*0.0004516594273 + perfectBuffer; 
         //debatably this is not even linear. r=>0.4
         //but since sin(x) approximates to x at low values, at worst this is only slightly wrong
