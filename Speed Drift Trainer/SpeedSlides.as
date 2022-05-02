@@ -81,7 +81,7 @@ float steerCoachVerticalFactor = 0.557f ;
 float steerCoachWidth = 364.0f;
 
 [Setting name="Steer Coach Drift Sensitivity" min="0.1" max="1" description="Higher sensitivity gives more feedback but increases jumping" ]
-float angleDiffFactor = 0.8;
+float angleDiffFactor = 0.45;
 
 [Setting name="Steer Coach Text" description="Show Steer Coach Instructions (Steer More/ Steer Less)"]
 bool DisplayCoachText = true;
