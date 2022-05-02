@@ -1,5 +1,5 @@
 # Trackmania Speed Drift Trainer Plugin
- In-game plugin for Trackmania to visualise and coach speed drifts
+In-game plugin for Trackmania to visualise and coach speed drifts (https://openplanet.dev/plugin/speeddrifttrainer)
 
 ## Features
 * Customisable UI through settings
