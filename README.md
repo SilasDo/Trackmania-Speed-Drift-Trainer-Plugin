@@ -11,6 +11,10 @@
 ## Supported Surfaces
 Currently: road, grass, plastic, dirt and metal (aka "platform") are all supported.
 
+## Video Examples
+https://youtu.be/k8vThB3wpHA
+https://youtu.be/xHEoAxHk9x8
+
 ## How to setup
 1. Download Openplanet (https://openplanet.dev/download)
 2. Install the Speed Drift Plugin
